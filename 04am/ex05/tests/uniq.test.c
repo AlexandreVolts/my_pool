@@ -14,7 +14,7 @@ Test(uniq_int_array_test, no_uniq)
 }
 Test(uniq_int_array_test, some_uniq)
 {
-    int array[] = { 5, 8, 6, 5, 5, 8 };
+    int array[] = { 5, 8, 5, 5, 8, 6 };
     int expect[] = { 5, 8, 6 };
 
     cr_assert(uniq_int_array(array, 6) == 3);
