@@ -2,7 +2,9 @@ DIR	=	src
 
 INC_DIR =	include/
 
-SRC	=	$(DIR)/disp.c		\
+SRC	=	$(DIR)/get.c		\
+		$(DIR)/set.c		\
+		$(DIR)/disp.c		\
 		$(DIR)/sort.c		\
 		$(DIR)/uniq.c		\
 		tests/disp.test.c	\
