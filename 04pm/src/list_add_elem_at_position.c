@@ -36,7 +36,7 @@ bool list_add_elem_at_position(list_t *front_ptr, void *elem, unsigned int posit
 }
 bool list_add_elem_at_back(list_t *front_ptr, void *elem)
 {
-    unsigned int size = list_get_size(*front_ptr);
+    unsigned int size = list_get_size(front_ptr == NULL ? NULL : *front_ptr);
 
     return (list_add_elem_at_position(front_ptr, elem, size));
 }
