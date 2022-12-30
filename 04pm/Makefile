@@ -5,10 +5,21 @@ TEST = test
 INC_DIR =	include/
 
 SRC	=	$(DIR)/list_add_elem_at_position.c			\
+		$(DIR)/list_get_elem_at_position.c			\
+		$(DIR)/list_del_elem_at_position.c			\
 		$(DIR)/list_get_size.c						\
+		$(DIR)/list_dump.c							\
 		$(DIR)/list_clear.c							\
+		$(DIR)/stack_clear.c						\
+		$(DIR)/stack_get_size.c						\
+		$(DIR)/stack_pop.c							\
+		$(DIR)/stack_push.c							\
+		$(DIR)/stack_top.c							\
 		$(TEST)/list_add_elem_at_position.test.c	\
+		$(TEST)/list_get_elem_at_position.test.c	\
+		$(TEST)/list_del_elem_at_position.test.c	\
 		$(TEST)/list_get_size.test.c				\
+		$(TEST)/list_dump.test.c					\
 		$(TEST)/list_clear.test.c					\
 
 CFLAGS	=	-Wall -Wextra -std=gnu17 -lcriterion -I ./$(INC_DIR) -I $(LIB_DIR)$(INC_DIR)

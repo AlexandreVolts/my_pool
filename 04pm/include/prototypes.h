@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include "list.h"
+#include "stack.h"
 
 typedef void (*value_displayer_t)(const void *value);
 
@@ -19,5 +20,11 @@ bool list_del_elem_at_back(list_t *front_ptr);
 bool list_del_elem_at_position(list_t *front_ptr, unsigned int position);
 void list_clear(list_t *front);
 void list_dump(list_t list, value_displayer_t val_disp);
+unsigned int stack_get_size(stack_t stack);
+bool stack_is_empty(stack_t stack);
+bool stack_push(stack_t *stack_ptr, void *elem);
+bool stack_pop(stack_t *stack_ptr);
+void stack_clear(stack_t *stack_ptr);
+void *stack_top(stack_t stack);
 
 #endif
