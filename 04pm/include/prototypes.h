@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include "list.h"
+#include "queue.h"
 #include "stack.h"
 
 typedef void (*value_displayer_t)(const void *value);
@@ -20,6 +21,12 @@ bool list_del_elem_at_back(list_t *front_ptr);
 bool list_del_elem_at_position(list_t *front_ptr, unsigned int position);
 void list_clear(list_t *front);
 void list_dump(list_t list, value_displayer_t val_disp);
+unsigned int queue_get_size(queue_t queue);
+bool queue_is_empty(queue_t queue);
+bool queue_push(queue_t *queue_ptr, void *elem);
+bool queue_pop(queue_t *queue_ptr);
+void queue_clear(queue_t *queue_ptr);
+void *queue_front(queue_t stack);
 unsigned int stack_get_size(stack_t stack);
 bool stack_is_empty(stack_t stack);
 bool stack_push(stack_t *stack_ptr, void *elem);

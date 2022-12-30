@@ -10,6 +10,11 @@ SRC	=	$(DIR)/list_add_elem_at_position.c			\
 		$(DIR)/list_get_size.c						\
 		$(DIR)/list_dump.c							\
 		$(DIR)/list_clear.c							\
+		$(DIR)/queue_clear.c						\
+		$(DIR)/queue_get_size.c						\
+		$(DIR)/queue_pop.c							\
+		$(DIR)/queue_push.c							\
+		$(DIR)/queue_front.c						\
 		$(DIR)/stack_clear.c						\
 		$(DIR)/stack_get_size.c						\
 		$(DIR)/stack_pop.c							\
