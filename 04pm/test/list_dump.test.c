@@ -40,12 +40,12 @@ static void redirect_all_stdout(void)
     cr_redirect_stderr();
 }
 
-Test(list_dump, with_null, .init=redirect_all_stdout)
+Test(list_dump_test, with_null, .init=redirect_all_stdout)
 {
     list_dump(NULL, NULL);
     cr_assert_stdout_eq_str("");
 }
-Test(list_dump, with_int_list, .init=redirect_all_stdout)
+Test(list_dump_test, with_int_list, .init=redirect_all_stdout)
 {
     list_t list = NULL;
     int arr[] = { 5, 6, 9, 21 };
@@ -57,7 +57,7 @@ Test(list_dump, with_int_list, .init=redirect_all_stdout)
     cr_assert_stdout_eq_str("5\n6\n9\n21\n");
     list_clear(&list);
 }
-Test(list_dump, with_str_list, .init=redirect_all_stdout)
+Test(list_dump_test, with_str_list, .init=redirect_all_stdout)
 {
     list_t list = NULL;
     char *arr[] = { "hello", " wo", "rld", " !" };

@@ -2,10 +2,12 @@
 #define PROTOTYPES_H_
 
 #include <stdbool.h>
+#include "container.h"
 #include "list.h"
 #include "map.h"
 #include "queue.h"
 #include "stack.h"
+#include "tree.h"
 
 typedef void (*value_displayer_t)(const void *value);
 
@@ -41,5 +43,11 @@ bool stack_push(stack_t *stack_ptr, void *elem);
 bool stack_pop(stack_t *stack_ptr);
 void stack_clear(stack_t *stack_ptr);
 void *stack_top(stack_t stack);
+bool tree_is_empty(tree_t tree);
+void tree_node_dump(tree_node_t *tree_node, dump_func_t dump_func);
+bool tree_init(tree_t *tree_ptr, void *data);
+tree_node_t *tree_add_child(tree_node_t *tree_node, void *data);
+bool tree_destroy(tree_t *tree_ptr);
+void tree_traversal(tree_t tree, container_t *container, dump_func_t dump_func);
 
 #endif

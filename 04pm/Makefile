@@ -26,6 +26,12 @@ SRC	=	$(DIR)/list_add_elem_at_position.c			\
 		$(DIR)/stack_pop.c							\
 		$(DIR)/stack_push.c							\
 		$(DIR)/stack_top.c							\
+		$(DIR)/tree_is_empty.c						\
+		$(DIR)/tree_node_dump.c						\
+		$(DIR)/tree_init.c							\
+		$(DIR)/tree_add_child.c						\
+		$(DIR)/tree_destroy.c						\
+		$(DIR)/tree_traversal.c						\
 		$(TEST)/list_add_elem_at_position.test.c	\
 		$(TEST)/list_get_elem_at_position.test.c	\
 		$(TEST)/list_del_elem_at_position.test.c	\
@@ -35,6 +41,9 @@ SRC	=	$(DIR)/list_add_elem_at_position.c			\
 		$(TEST)/map_get_index.test.c				\
 		$(TEST)/map_add_elem.test.c					\
 		$(TEST)/map_del_elem.test.c					\
+		$(TEST)/tree_is_empty.test.c				\
+		$(TEST)/tree_add_child.test.c				\
+		$(TEST)/tree_traversal.test.c				\
 
 CFLAGS	=	-Wall -Wextra -std=gnu17 -lcriterion -I ./$(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
 
