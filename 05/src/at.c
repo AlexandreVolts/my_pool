@@ -10,7 +10,7 @@ static size_t len(const char *str)
     for (; str[i] != '\0'; i++);
     return (i);
 }
-char at(string_t *this, size_t pos)
+char at(const string_t *this, size_t pos)
 {
     if (this == NULL || pos >= len(this->str))
         return (-1);
