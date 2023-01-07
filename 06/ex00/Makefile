@@ -1,12 +1,8 @@
 DIR	=	src
 
-TEST = test
-
-INC_DIR =	include/
-
 SRC	=	$(DIR)/main.cpp		\
 
-CFLAGS	=	-Wall -Wextra -std=c++20 -lcriterion -I ./$(INC_DIR) -I $(LIB_DIR)$(INC_DIR)
+CFLAGS	=	-Wall -Wextra -std=c++20
 
 CC	=	g++
 
