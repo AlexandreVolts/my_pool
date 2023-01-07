@@ -36,6 +36,11 @@ void SickKoala::overDrive(std::string message) const
     }
     std::cout << message << std::endl;
 }
+std::string SickKoala::getName() const
+{
+    return (this->name);
+}
+
 void SickKoala::printName() const
 {
     std::cout << "Mr." << this->name << ": ";

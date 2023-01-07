@@ -11,6 +11,7 @@ class SickKoala
         void poke() const;
         void takeDrug(const std::string drug) const;
         void overDrive(std::string message) const;
+        std::string getName() const;
     private:
         void printName() const;
         std::string name;
