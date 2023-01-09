@@ -36,6 +36,10 @@ void KoalaDoctor::timeCheck()
         std::cout << "Time to go home to my eucalyptus forest!" << std::endl;
     }
 }
+std::string KoalaDoctor::getName() const
+{
+    return (this->name);
+}
 void KoalaDoctor::printName() const
 {
     std::cout << "Dr." << this->name << ": ";

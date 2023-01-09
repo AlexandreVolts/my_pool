@@ -8,13 +8,14 @@
 class KoalaNurse
 {
     public:
-        KoalaNurse(size_t id);
+        KoalaNurse(int id);
         ~KoalaNurse();
         void giveDrug(std::string drug, const SickKoala &koala) const;
         std::string readReport(std::string report) const;
         void timeCheck();
+        int getID() const;
     private:
-        size_t id;
+        int id;
         bool isWorking;
         void printId() const;
 };

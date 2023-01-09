@@ -2,7 +2,7 @@
 #include <iostream>
 #include "KoalaNurse.hpp"
 
-KoalaNurse::KoalaNurse(size_t id) : isWorking(false)
+KoalaNurse::KoalaNurse(int id) : isWorking(false)
 {
     this->id = id;
 }
@@ -47,6 +47,10 @@ void KoalaNurse::timeCheck()
     else {
         std::cout << "Time to go home to my eucalyptus forest!" << std::endl;
     }
+}
+int KoalaNurse::getID() const
+{
+    return (this->id);
 }
 void KoalaNurse::printId() const
 {
