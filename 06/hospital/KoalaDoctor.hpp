@@ -10,7 +10,7 @@ class KoalaDoctor
         KoalaDoctor(std::string name);
         void diagnose(SickKoala *koala) const;
         void timeCheck();
-        std::string getName() const;
+        const std::string &getName() const;
     private:
         std::string name;
         bool isWorking;

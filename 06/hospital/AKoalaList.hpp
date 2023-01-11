@@ -8,15 +8,15 @@ class AKoalaList
 {
     public:
         AKoalaList(T koala);
-        void append(T koala);
         bool isEnd() const;
-        AKoalaList<T> *remove(T koala);
-        //virtual void dump() const;
-        T getCurrent() const;
+        virtual void append(T koala) = 0;
+        AKoalaList<T> *remove(AKoalaList<T> *koala);
+        virtual void dump() const = 0;
+        virtual T getFromName(std::string name) const = 0;
+        T getContent() const;
         AKoalaList<T> *getNext() const;
     protected:
-        //virtual void get(void *id) const;
-        //virtual void removeFrom(void *id);
+        void add(AKoalaList<T> *koala);
     private:
         T elem;
         AKoalaList<T> *next;

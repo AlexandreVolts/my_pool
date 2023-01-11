@@ -7,26 +7,17 @@ AKoalaList<T>::AKoalaList(T koala)
     this->next = nullptr;
 }
 template <class T>
-void AKoalaList<T>::append(T koala)
-{
-    if (this->next == nullptr) {
-        this->next = new AKoalaList(koala);
-        return;
-    }
-    this->next->append(koala);
-}
-template <class T>
 bool AKoalaList<T>::isEnd() const
 {
     return (this->next == nullptr);
 }
 template <class T>
-AKoalaList<T> *AKoalaList<T>::remove(T koala)
+AKoalaList<T> *AKoalaList<T>::remove(AKoalaList<T> *koala)
 {
-    if (this->elem == koala) {
+    if (this == koala) {
         return (this->next);
     }
-    if (this->next->getCurrent() == koala) {
+    if (this->next == koala) {
         this->next = this->next == nullptr ? nullptr : this->next->getNext();
         delete this->next;
         return (this);
@@ -36,7 +27,7 @@ AKoalaList<T> *AKoalaList<T>::remove(T koala)
     return (this);
 }
 template <class T>
-T AKoalaList<T>::getCurrent() const
+T AKoalaList<T>::getContent() const
 {
     return (this->elem);
 }
@@ -44,6 +35,16 @@ template <class T>
 AKoalaList<T> *AKoalaList<T>::getNext() const
 {
     return (this->next);
+}
+
+template <class T>
+void AKoalaList<T>::add(AKoalaList<T> *koala)
+{
+    if (this->next == nullptr) {
+        this->next = koala;
+        return;
+    }
+    this->next->add(koala);
 }
 
 template class AKoalaList<SickKoala *>;
