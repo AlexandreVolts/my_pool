@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Federation.hpp"
+#include "Borg.hpp"
 
 Federation::Ship::Ship(int length, int width, std::string name) :
 _length(length), _width(width), _name(name) {
@@ -10,7 +11,7 @@ _length(length), _width(width), _name(name) {
 void Federation::Ship::setupCore(WarpSystem::Core *core)
 {
     std::cout << _name << ": The core is set." << std::endl;
-    _core = core;
+    Borg::Ship::setupCore(core);
 }
 void Federation::Ship::checkCore() const
 {
@@ -23,8 +24,27 @@ void Federation::Ship::checkCore() const
     std::cout << (isStable ? "stable" : "unstable") << " at the time." << std::endl;
 }
 
+Federation::Starfleet::Ensign::Ensign(std::string name)
+{
+    std::cout << "Ensign " << name << ", awaiting orders." << std::endl;
+}
+Federation::Starfleet::Captain::Captain(std::string name) : _name(name), _age(0) {}
+
+std::string Federation::Starfleet::Captain::getName() const
+{
+    return (_name);
+}
+int Federation::Starfleet::Captain::getAge() const
+{
+    return (_age);
+}
+void Federation::Starfleet::Captain::setAge(int age)
+{
+    _age = age;
+}
+
 Federation::Starfleet::Ship::Ship(int length, int width, std::string name, short maxWarp) :
-Federation::Ship::Ship(length, width, name), _maxWarp(maxWarp)
+Federation::Ship::Ship(length, width, name), _maxWarp(maxWarp), _captain(nullptr)
 {
     std::cout << "It can go to Warp " << maxWarp << "!" << std::endl;
 }
@@ -38,4 +58,10 @@ void Federation::Starfleet::Ship::checkCore() const
 {
     std::cout << "USS. ";
     Federation::Ship::checkCore();
+}
+void Federation::Starfleet::Ship::promote(Federation::Starfleet::Captain *captain)
+{
+    _captain = captain;
+    std::cout << captain->getName() << ": I'm glad to be the captain of the USS ";
+    std::cout << _name << "." << std::endl;
 }

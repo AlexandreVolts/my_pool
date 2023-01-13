@@ -9,7 +9,7 @@ static void redirect_all_stdout(void)
     cr_redirect_stderr();
 }
 
-Test(core_test, core_checking_test, .init=redirect_all_stdout)
+Test(core_test, core_checking_test)
 {
     WarpSystem::QuantumReactor reactor;
     WarpSystem::QuantumReactor *ptr = &reactor;
