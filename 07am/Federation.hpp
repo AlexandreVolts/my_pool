@@ -7,7 +7,7 @@
 
 namespace Federation
 {
-    class Ship : Borg::Ship
+    class Ship : public Borg::Ship
     {
         public:
             Ship(int length, int width, std::string name);
@@ -36,7 +36,7 @@ namespace Federation
                 std::string _name;
                 int _age;
         };
-        class Ship : Federation::Ship
+        class Ship : public Federation::Ship
         {
             public:
                 Ship(int length, int width, std::string name, short maxWarp);
@@ -44,7 +44,6 @@ namespace Federation
                 void checkCore() const;
                 void promote(Starfleet::Captain *captain);
             private:
-                short _maxWarp;
                 Starfleet::Captain *_captain;
         };
     }

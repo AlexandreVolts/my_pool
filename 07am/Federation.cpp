@@ -4,6 +4,9 @@
 
 Federation::Ship::Ship(int length, int width, std::string name) :
 _length(length), _width(width), _name(name) {
+    _home = VULCAN;
+    _location = _home;
+    _maxWarp = 1;
     std::cout << "The ship USS " << name << " has been finished." << std::endl;
     std::cout << "It is " << length << " m long and " << width << " m in width." << std::endl;
 }
@@ -44,8 +47,11 @@ void Federation::Starfleet::Captain::setAge(int age)
 }
 
 Federation::Starfleet::Ship::Ship(int length, int width, std::string name, short maxWarp) :
-Federation::Ship::Ship(length, width, name), _maxWarp(maxWarp), _captain(nullptr)
+Federation::Ship::Ship(length, width, name), _captain(nullptr)
 {
+    _home = EARTH;
+    _location = EARTH;
+    _maxWarp = maxWarp;
     std::cout << "It can go to Warp " << maxWarp << "!" << std::endl;
 }
 
@@ -56,6 +62,8 @@ void Federation::Starfleet::Ship::setupCore(WarpSystem::Core *core)
 }
 void Federation::Starfleet::Ship::checkCore() const
 {
+    if (_core == nullptr)
+        return;
     std::cout << "USS. ";
     Federation::Ship::checkCore();
 }
