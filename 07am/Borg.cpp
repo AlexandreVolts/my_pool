@@ -1,17 +1,17 @@
 #include <iostream>
 #include "Borg.hpp"
 
-Borg::Ship::Ship() : _maxWarp(9), _core(nullptr), _home(UNICOMPLEX), _location(_home)
+Borg::Ship::Ship(int weaponFrequency, short repair) :
+AShip::AShip(UNICOMPLEX), _weaponFrequency(weaponFrequency), _repair(repair)
 {
+    _maxWarp = 9;
     std::cout << "We are the Borgs. Lower your shields and surrender yourselves unconditionally." << std::endl;
     std::cout << "Your biological characteristics and technologies will be assimilated." << std::endl;
     std::cout << "Resistance is futile." << std::endl;
 }
 
-void Borg::Ship::setupCore(WarpSystem::Core *core)
-{
-    _core = core;
-}
+Borg::Ship::Ship() : Borg::Ship::Ship(20, 3) {}
+
 void Borg::Ship::checkCore() const
 {
     if (_core == nullptr)
@@ -23,26 +23,42 @@ void Borg::Ship::checkCore() const
         std::cout << "Critical failure imminent." << std::endl;
     }
 }
-bool Borg::Ship::move(int warp, Destination d)
+void Borg::Ship::fire(Federation::Ship *ship)
 {
-    if (warp > _maxWarp || d == _location || _core == nullptr) {
-        return (false);
+    WarpSystem::Core *core = ship->getCore();
+
+    core->checkReactor()->setStability(false);
+    std::cout << "Firing on target with " << _weaponFrequency << "GW frequency." << std::endl;
+}
+void Borg::Ship::fire(Federation::Starfleet::Ship *ship)
+{
+    ship->setShield(ship->getShield() - _weaponFrequency);
+    std::cout << "Firing on target with " << _weaponFrequency << "GW frequency." << std::endl;
+}
+void Borg::Ship::repair()
+{
+    if (_repair <= 0) {
+        std::cout << "Energy cells depleted, shield weakening." << std::endl;
+        return;
     }
-    if (!_core->checkReactor()->isStable()) {
-        return (false);
-    }
-    _location = d;
-    return (true);
+    _repair--;
+    _shield = 100;
+    std::cout << "Begin shield re-initialisation... Done.";
+    std::cout << " Awaiting further instructions." << std::endl;
 }
-bool Borg::Ship::move(int warp)
+int Borg::Ship::getWeaponFrequency() const
 {
-    return (move(warp, _home));
+    return (_weaponFrequency);
 }
-bool Borg::Ship::move(Destination d)
+short Borg::Ship::getRepair() const
 {
-    return (move(0, d));
+    return (_repair);
 }
-bool Borg::Ship::move()
+void Borg::Ship::setWeaponFrequency(int weaponFrequency)
 {
-    return (move(0, _home));
+    _weaponFrequency = weaponFrequency;
+}
+void Borg::Ship::setRepair(short repair)
+{
+    _repair = repair;
 }

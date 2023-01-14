@@ -1,26 +1,29 @@
 #ifndef BORG_HPP_
 #define BORG_HPP_
 
+#include "AShip.hpp"
 #include "Destination.hpp"
+#include "Federation.hpp"
 #include "WarpSystem.hpp"
 
 namespace Borg
 {
-    class Ship
+    class Ship : public AShip
     {
         public:
             Ship();
-            virtual void setupCore(WarpSystem::Core *core);
-            virtual void checkCore() const;
-            bool move(int warp, Destination d);
-            bool move(int warp);
-            bool move(Destination d);
-            bool move();
-        protected:
-            WarpSystem::Core *_core;
-            short _maxWarp;
-            Destination _location;
-            Destination _home;
+            Ship(int weaponFrequency, short repair);
+            void checkCore() const;
+            void fire(Federation::Ship *ship);
+            void fire(Federation::Starfleet::Ship *ship);
+            void repair();
+            int getWeaponFrequency() const;
+            short getRepair() const;
+            void setWeaponFrequency(int weaponFrequency);
+            void setRepair(short repair);
+        private:
+            int _weaponFrequency;
+            short _repair;
     };
 }
 
