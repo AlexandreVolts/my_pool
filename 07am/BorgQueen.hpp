@@ -2,6 +2,7 @@
 #define BORG_QUEEN_HPP_
 
 #include "Borg.hpp"
+#include "Destination.hpp"
 #include "Federation.hpp"
 
 namespace Borg
