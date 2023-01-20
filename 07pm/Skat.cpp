@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Skat.hpp"
 
-Skat::Skat(const std::string &name, int stimPack) :
-_name(name), _stimPack(stimPack) {}
+Skat::Skat(const std::string &name, int stimPack, int serial, int x, int y, Phaser::AmmoType type) :
+_name(name), _stimPack(stimPack), _phaser(Phaser(20, type)), _com(KreogCom(x, y, serial)) {}
 
 int &Skat::stimPack()
 {
@@ -42,4 +42,20 @@ void Skat::status() const
 {
     std::cout << "Soldier " << _name << " reporting ";
     std::cout << _stimPack << " stimpaks remaining sir!" << std::endl;
+}
+void Skat::fire()
+{
+    _phaser.fire();
+}
+void Skat::reload()
+{
+    _phaser.reload();
+}
+void Skat::locate() const
+{
+    _com.ping();
+}
+KreogCom &Skat::com()
+{
+    return (_com);
 }

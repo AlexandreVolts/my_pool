@@ -17,10 +17,12 @@ KreogCom::~KreogCom()
 }
 void KreogCom::addCom(int x, int y, int serial)
 {
-    KreogCom *kc = _kc;
-
-    _kc = new KreogCom(x, y, serial);
-    _kc->_kc = kc;
+    addCom(new KreogCom(x, y, serial));
+}
+void KreogCom::addCom(KreogCom *com)
+{
+    com->_kc = _kc;
+    _kc = com;
 }
 void KreogCom::ping() const
 {
